@@ -36,3 +36,61 @@
     transform: rotate(360deg);
   }
 }
+/* Style the video: 100% width and height to cover the entire window */
+#myVideo {
+  z-index: -10;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.form, .family-list-container{
+  -webkit-box-shadow: 13px -3px 16px -1px rgba(0,0,0,0.19); 
+  box-shadow: 13px -3px 16px -1px rgba(0,0,0,0.19);
+}
+
+.header{
+  -webkit-box-shadow: 6px -3px 17px 1px rgba(0,0,0,0.35); 
+box-shadow: 6px -3px 17px 1px rgba(0,0,0,0.35);
+}
+
+/* card customization */
+.card{  -webkit-box-shadow: 13px -3px 16px -1px rgba(0,0,0,0.19); 
+  box-shadow: 13px -3px 16px -1px rgba(0,0,0,0.19);
+transition: box-shadow 1s ;}
+
+.card:hover{
+  -webkit-box-shadow: 8px 7px 11px -1px rgba(20,39,153,0.83); 
+box-shadow: 8px 7px 11px -1px rgba(20,39,153,0.83);
+}
+.deleteOrEdit{
+  display: none;
+ 
+ 
+}
+
+.card-content:hover + .deleteOrEdit{
+  display:block;
+  transition: display 3s ;
+  
+}
+.deleteOrEdit:hover{
+  display: block;
+ 
+ 
+}
+
+.fa-edit,.fa-trash-alt:hover{
+  cursor: pointer;
+}
+
+
+/* spinner */
+
+.fa-spinner{
+  position: absolute;
+  bottom:50vh;
+  left: 45vw;
+}

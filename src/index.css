@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.invalid-field{
+  border-color: red !important;
+  color: rgb(245, 97, 97);
+  background-color: silver;
+}
+
+/* jumbotron */
+.jumbotron{
+
+
+box-shadow: 8px 7px 11px -1px rgba(20,39,153,0.83);
+}
