@@ -16,38 +16,37 @@ function ScheduleList() {
 
   const dispatch = useDispatch()
 
-  const [showModal, setShowModal]= useState(false);
-  const[modalImg, setModalImg]=useState('');
+  const [showModal, setShowModal] = useState(false);
+  const [modalImg, setModalImg] = useState('');
 
   useEffect(() => {
 
     refresh();
   }, [schedules.post_success])
 
- 
+
 
 
   const addOrEdit = (form, onSuccess) => {
-    if (form.get('scheduleId') === "0") 
-    {
+    if (form.get('scheduleId') === "0") {
       dispatch(post(form))
-          // should work on this needs to be in the if statement , add promise
-          onSuccess()   
+      // should work on this needs to be in the if statement , add promise
+      onSuccess()
       if (schedules.post_success) {
-        onSuccess()        
+        onSuccess()
       }
       else {
         console.log(schedules.error)
       }
     }
     else {
-      dispatch(edit_schedule(form.get('scheduleId'),form))
+      dispatch(edit_schedule(form.get('scheduleId'), form))
     }
   }
 
 
   function refresh() {
-console.log('refresh hit');
+    console.log('refresh hit');
     dispatch(fetch_schedules());
   }
 
@@ -69,16 +68,16 @@ console.log('refresh hit');
       console.log(x)
       return (
         <Col xs={12} md={6} key={i}>
-         
+
           <Card className='m-2' border="light"  >
-          <h5> {x.date.slice(0,10)}</h5>
+            <h5> {x.date.slice(0, 10)}</h5>
             <div className="card-content">
               <Card.Img variant="top" src={x.imageSrc} />
               <Card.Body>
-                            
+
                 <Card.Title> <u> {x.workStationType} </u> </Card.Title>
                 <Card.Text className="text-left">
-                   {x.comment}
+                  {x.comment}
                 </Card.Text>
               </Card.Body>
               <Card.Footer>
@@ -87,25 +86,25 @@ console.log('refresh hit');
             </div>
             <div className="deleteOrEdit" > <i id={x.scheduleId} onClick={HandleEdit} className=" text-secondary fas fa-edit"></i><i onClick={HandleDelete} id={x.scheduleId} className=" text-secondary ml-2 far fa-trash-alt"></i></div>
             <Button variant="primary" onClick={() => setShowModal(true)}>
-              
-        Custom Width Modal
+
+              Custom Width Modal
       </Button>
           </Card>
           <Modal
-        show={showModal}
-        onHide={() => setShowModal(false)}
-        dialogClassName="modal-90w"
-        aria-labelledby="example-custom-modal-styling-title"
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="example-custom-modal-styling-title">
-            Custom Modal Styling
+            show={showModal}
+            onHide={() => setShowModal(false)}
+            dialogClassName="modal-90w"
+            aria-labelledby="example-custom-modal-styling-title"
+          >
+            <Modal.Header closeButton>
+              <Modal.Title id="example-custom-modal-styling-title">
+                Custom Modal Styling
           </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-        <Card.Img variant="top" src={modalImg} />
-        </Modal.Body>
-      </Modal>
+            </Modal.Header>
+            <Modal.Body>
+              <Card.Img variant="top" src={modalImg} />
+            </Modal.Body>
+          </Modal>
         </Col>
       )
     }
